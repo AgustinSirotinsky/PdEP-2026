@@ -21,7 +21,8 @@ maximoF f ( x : y : xs)
 --DEFINICION DE ALIAS DE TIPO Y/O TIPOS DE DATO NECESARIOS
 
 --The chosen one + others
-type Estudiante = (String, (Integer, Integer, Integer)) --SON TUPLAS
+--Son tuplas !!
+type Estudiante = (String, (Integer, Integer, Integer)) --Nombre, (nivel de suerte, de poder de convencimiento, y de fuerza física)
 harry = ("Harry", (11, 5, 4))
 ron = ("Ron", (6, 4, 6))
 hermione = ("Hermione", (8, 12, 2))
@@ -84,12 +85,12 @@ diferenciaNivelesPersona (_, tuplaNiveles) = diferenciaNiveles tuplaNiveles
 
 --Punto 4
 efectosDePocion :: Pocion -> [Efecto] --CUANDO HAY QUE REVISAR TODO MAP          AL FINAL SIEMPRE PONER "SIGUIENTE" ingredientesPocion
-efectosDePocion = concat.map efectoIngrediente. ingredientesPocion
+efectosDePocion = concat.map efectoIngrediente.ingredientesPocion
 
 --Punto 5
 
 pocionesHeavies :: [Pocion] -> [String] --CRITERIOS MAP+FILTER
-pocionesHeavies = map nombrePocion. filter ((>= 4).length.efectosDePocion)
+pocionesHeavies = map nombrePocion.filter ((>= 4).length.efectosDePocion)
 
 --CONCAT SOLO LO USO CUANDO LO QUE TIENE QUE DEVOLVER ESTA DENTRO DE UNA LISTA LISTA
 
@@ -109,3 +110,11 @@ esPocionMagica pocion = any (incluyeA "aeiou" . nombreIngrediente)            (i
  -- All porque dice "TODOS"  Even porque "pares" cantidadIngrediente saca el Int       vuelvo para atras, salgo a la lista anterior
 
 --Punto 7
+
+tomarPocion :: Pocion -> Estudiante -> Estudiante
+tomarPocion _ (nombreEstudiante, estadisticasEstudiante) = (nombreEstudiante, estadisticasEstudiante)
+
+
+-- tomarPocion _ (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica)) = (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica))
+
+--nivel de suerte, de poder de convencimiento, y de fuerza física.
