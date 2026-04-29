@@ -93,6 +93,19 @@ pocionesHeavies = map nombrePocion. filter ((>= 4).length.efectosDePocion)
 
 --CONCAT SOLO LO USO CUANDO LO QUE TIENE QUE DEVOLVER ESTA DENTRO DE UNA LISTA LISTA
 
---Punto 6
-incluyeA :: [a] -> [a] -> Bool
-incluyeA x y = 
+--Punto 6        
+incluyeA :: Eq a => [a] -> [a] -> Bool --Si habrá que hacer una func generica para comparar  entonces usar Eq
+incluyeA lista1 lista2 = all (flip elem lista2) lista1 --all saca y pasa cada elemnto de lista1 
+
+--elem: un elemento 'X' que lo compara con una "lista". por eso tenemos que hacer el flip porque estaría  pensando  como si la Lista2 sea el elemento 'X' flip para que los argumentos se den vuelta
+-- el ultimo lista1 es siguiente 
+
+esPocionMagica :: Pocion -> Bool --uso variable pocion porque tengo que "ir para atras" para ver otra cosa
+esPocionMagica pocion = any (incluyeA "aeiou" . nombreIngrediente)            (ingredientesPocion pocion)
+   -- Any porque dice "ALGUNO"  incluyeA le doy el elemento 'X' tipo string          *siguiente* 
+   --                           nombreIngrediente le da el ingrediente 
+   --                           (1° saco el ingrediente y comparo)  
+                     && all (even . cantidadIngrediente)                            (ingredientesPocion pocion)
+ -- All porque dice "TODOS"  Even porque "pares" cantidadIngrediente saca el Int       vuelvo para atras, salgo a la lista anterior
+
+--Punto 7
