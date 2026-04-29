@@ -1,3 +1,4 @@
+import Text.Show.Functions
 aplicar3 f (a, b, c) = (f a, f b, f c)
 
 invertir3 (a, b, c) = (c, b, a)
@@ -25,16 +26,15 @@ ron = ("Ron", (6, 4, 6))
 hermione = ("Hermione", (8, 12, 2))
 draco = ("Draco", (7, 9, 6))
 
-
---Ingredientes
-data Ingrediente = Ingrediente String Int [Efecto]
+--Pocion
+data Pocion = Pocion String [Ingrediente]
 
 felixFelices = Pocion "Felix Felices" [escarabajosMachacados, ojoDeTigreSucio]
 multijugos = Pocion "Multijugos" [cuernoDeBicornioEnPolvo, sanguijuelaHormonal]
 floresDeBach = Pocion "Flores de Bach" [orquideaSalvaje, rosita]
 
---Pocion
-data Pocion = Pocion String [Ingrediente]
+--Ingredientes
+data Ingrediente = Ingrediente String Int [Efecto]
 
 escarabajosMachacados = Ingrediente "Escarabajos Machacados" 52 [f1, f2]
 ojoDeTigreSucio = Ingrediente "Ojo de Tigre Sucio" 2 [f3]
@@ -72,3 +72,7 @@ sumaNivelesPersona (_, tuplaNiveles) = sumaNiveles tuplaNiveles
 
 diferenciaNivelesPersona :: Estudiante -> Integer
 diferenciaNivelesPersona (_, tuplaNiveles) = diferenciaNiveles tuplaNiveles
+
+--Punto 4
+efectosDePocion :: Pocion -> [Efecto]
+efectosDePocion (Pocion _ ingrediente ) = map ingrediente 
