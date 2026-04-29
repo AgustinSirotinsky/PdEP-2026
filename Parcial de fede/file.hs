@@ -19,7 +19,7 @@ maximoF f ( x : y : xs)
 
 
 --The chosen one + others
-type Estudiante = (String, (Int, Int, Int))
+type Estudiante = (String, (Integer, Integer, Integer))
 harry = ("Harry", (11, 5, 4))
 ron = ("Ron", (6, 4, 6))
 hermione = ("Hermione", (8, 12, 2))
@@ -56,13 +56,19 @@ f3 (ns, nc, nf)
   | otherwise = (ns, nc, nf-3)
 
 --Punto 2
-sumaNiveles :: (Int, Int, Int) -> Int
+sumaNiveles :: (Integer, Integer, Integer) -> Integer
 sumaNiveles (num1,num2,num3) = num1+num2+num3  
 
 -- sumaNiveles (n1,n2,n3) = sum [n1,n2,n3]
 
-diferenciaNiveles :: (Int, Int, Int) -> Int
+diferenciaNiveles :: (Integer, Integer, Integer) -> Integer
 diferenciaNiveles (n1, n2, n3) = (max n1 (max n2 n3)) - (min n1 (min n2 n3)) 
 
 --HACERLO MAS LINDO
 
+--Punto 3
+sumaNivelesPersona :: Estudiante -> Integer
+sumaNivelesPersona (_, tuplaNiveles) = sumaNiveles tuplaNiveles
+
+diferenciaNivelesPersona :: Estudiante -> Integer
+diferenciaNivelesPersona (_, tuplaNiveles) = diferenciaNiveles tuplaNiveles
