@@ -28,6 +28,7 @@ draco = ("Draco", (7, 9, 6))
 
 --Pocion
 data Pocion = Pocion String [Ingrediente]
+    deriving(Show)
 
 felixFelices = Pocion "Felix Felices" [escarabajosMachacados, ojoDeTigreSucio]
 multijugos = Pocion "Multijugos" [cuernoDeBicornioEnPolvo, sanguijuelaHormonal]
@@ -35,6 +36,7 @@ floresDeBach = Pocion "Flores de Bach" [orquideaSalvaje, rosita]
 
 --Ingredientes
 data Ingrediente = Ingrediente String Int [Efecto]
+    deriving(Show)
 
 escarabajosMachacados = Ingrediente "Escarabajos Machacados" 52 [f1, f2]
 ojoDeTigreSucio = Ingrediente "Ojo de Tigre Sucio" 2 [f3]
@@ -75,4 +77,4 @@ diferenciaNivelesPersona (_, tuplaNiveles) = diferenciaNiveles tuplaNiveles
 
 --Punto 4
 efectosDePocion :: Pocion -> [Efecto]
-efectosDePocion (Pocion _ ingrediente ) = map ingrediente 
+efectosDePocion (Pocion _ [Ingrediente _ _ (listaEfectos)]) = listaEfectos
