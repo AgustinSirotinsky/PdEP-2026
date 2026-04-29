@@ -122,4 +122,9 @@ tomarPocion pocion (nombreEstudiante, estadisticasEstudiante) = (nombreEstudiant
 --Punto 8
 
 esAntidoto :: Estudiante -> Pocion -> Pocion -> Bool
-esAntidoto = 
+esAntidoto persona pocion1 pocion2 = persona ==  tomarPocion pocion1 (tomarPocion pocion1 persona)
+
+--NO SE MODIFICA LA ORIGINAL SINO QUE UNA COPIA, OSEA SU YO  VUELVO A ESCRIBIR PERSONA ES EL ORIGNAL como parametro
+
+--Punto 9 
+personaMasAfectada :: Pocion -> ((Integer, Integer, Integer) -> Integer) -> [Estudiante]

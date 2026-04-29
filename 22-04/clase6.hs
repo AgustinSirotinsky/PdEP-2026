@@ -381,15 +381,18 @@ HAY QUE USARLOS CON UN ($) si lo vamos a hacer ejecutar a una tupla por ejemplo
         RECIBE PRIMERO LA FUNCION Y DESPUES LA LA VARIABLE
 
 r significa que empieza de atras para adelante
-l empieza de izquierda a derecha PERO TIENE 
+l empieza de izquierda a derecha
 
 
 
 ----------------------------------------------------------------------------------------------------------------------------
 
 
+EMPEZAR A USAR LAMBDA \argumentos -> cuerpo
 
-
-
+    SIRVE COMO PARA HACER UNA CONSIGNA EN UN CASO ESPECIFICO/RESTRUCTURAR 
+        EJ: en un caso de usar un FOLDL y quiero ordenarlo para que lea los argumentos
+        en el orden que yo los pongo --> foldl (\tupla efecto -> efecto tupla)      tupla  (efecto pocion) 
+----------------------------------------- ----- ORIGINAL-----(mi modificacion temp)----------efectos + relectura
 
 -}
