@@ -370,12 +370,21 @@ PLEGAR: puedo usarla para acortar funciones q definimos antes  (vi: valor inicia
     plegar op vi (x:xs) = op x (plegar op vi xs)
 
 Fold
-    es igual a plegar  (tambien esta el foldl)
+    es igual a plegar  (tambien esta el foldl) --ESPERA EL NUMERO DESPUES LA FUNCION
     foldr :: ( b - a - a) -  a - [b] - a
 
     foldl :: (a - b -a) - a - [b] - a
 
 --foldr // foldl es una especia de bucle
+
+HAY QUE USARLOS CON UN ($) si lo vamos a hacer ejecutar a una tupla por ejemplo
+        RECIBE PRIMERO LA FUNCION Y DESPUES LA LA VARIABLE
+
+r significa que empieza de atras para adelante
+l empieza de izquierda a derecha PERO TIENE 
+
+
+
 ----------------------------------------------------------------------------------------------------------------------------
 
 

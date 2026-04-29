@@ -57,7 +57,7 @@ rosita = Ingrediente "Rosita" 1 [f1]
 
 --Efectos
 
-type Efecto = (Int, Int, Int) -> (Int, Int, Int)
+type Efecto = (Integer, Integer, Integer) -> (Integer, Integer, Integer)
 
 f1 (ns, nc, nf) = (ns+1, nc+2, nf+3)
 f2 = aplicar3 (max 7)
@@ -112,7 +112,7 @@ esPocionMagica pocion = any (incluyeA "aeiou" . nombreIngrediente)            (i
 --Punto 7
 
 tomarPocion :: Pocion -> Estudiante -> Estudiante
-tomarPocion _ (nombreEstudiante, estadisticasEstudiante) = (nombreEstudiante, estadisticasEstudiante)
+tomarPocion pocion (nombreEstudiante, estadisticasEstudiante) = (nombreEstudiante, foldl (flip ($)) estadisticasEstudiante (efectosDePocion pocion))
 
 
 -- tomarPocion _ (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica)) = (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica))
