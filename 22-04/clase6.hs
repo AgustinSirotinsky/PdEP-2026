@@ -262,7 +262,7 @@ TYPE
 
 type String = [Char]
 
-type Docente= (String, Int)
+type Docente = (String, Int)
 
 -- es tambien como un tipo de dato, puedo usar ahora Docente para crear Tuplas mas rapido
 --------------------------------------------------------------------------------------------------
