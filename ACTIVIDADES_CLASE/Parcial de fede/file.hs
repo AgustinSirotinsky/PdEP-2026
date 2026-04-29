@@ -118,3 +118,8 @@ tomarPocion pocion (nombreEstudiante, estadisticasEstudiante) = (nombreEstudiant
 -- tomarPocion _ (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica)) = (nombreEstudiante, (nivelSuerte, poderConvencimiento, fuerzaFisica))
 
 --nivel de suerte, de poder de convencimiento, y de fuerza física.
+
+--Punto 8
+
+esAntidoto :: Estudiante -> Pocion -> Pocion -> Bool
+esAntidoto = 
