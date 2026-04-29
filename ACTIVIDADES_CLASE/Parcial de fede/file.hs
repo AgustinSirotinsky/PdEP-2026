@@ -1,4 +1,5 @@
 import Text.Show.Functions
+--FUNCIONES YA DEFINIDAS
 aplicar3 f (a, b, c) = (f a, f b, f c)
 
 invertir3 (a, b, c) = (c, b, a)
@@ -17,26 +18,32 @@ maximoF f ( x : y : xs)
   | f x > f y = maximoF f (x:xs)
   | otherwise = maximoF f (y:xs)
 
-
+--DEFINICION DE ALIAS DE TIPO Y/O TIPOS DE DATO NECESARIOS
 
 --The chosen one + others
-type Estudiante = (String, (Integer, Integer, Integer))
+type Estudiante = (String, (Integer, Integer, Integer)) --SON TUPLAS
 harry = ("Harry", (11, 5, 4))
 ron = ("Ron", (6, 4, 6))
 hermione = ("Hermione", (8, 12, 2))
 draco = ("Draco", (7, 9, 6))
 
 --Pocion
-data Pocion = Pocion String [Ingrediente]
-    deriving(Show)
+data Pocion = Pocion {
+  nombrePocion :: String,
+  ingredientesPocion :: [Ingrediente]
+} deriving(Show)
 
 felixFelices = Pocion "Felix Felices" [escarabajosMachacados, ojoDeTigreSucio]
 multijugos = Pocion "Multijugos" [cuernoDeBicornioEnPolvo, sanguijuelaHormonal]
+floresDeBach :: Pocion
 floresDeBach = Pocion "Flores de Bach" [orquideaSalvaje, rosita]
 
 --Ingredientes
-data Ingrediente = Ingrediente String Int [Efecto]
-    deriving(Show)
+data Ingrediente = Ingrediente {
+  nombreIngrediente :: String,
+  cantidadIngrediente :: Int,
+  efectoIngrediente :: [Efecto] --Efecto es Tupla
+} deriving(Show)
 
 escarabajosMachacados = Ingrediente "Escarabajos Machacados" 52 [f1, f2]
 ojoDeTigreSucio = Ingrediente "Ojo de Tigre Sucio" 2 [f3]
@@ -76,5 +83,16 @@ diferenciaNivelesPersona :: Estudiante -> Integer
 diferenciaNivelesPersona (_, tuplaNiveles) = diferenciaNiveles tuplaNiveles
 
 --Punto 4
-efectosDePocion :: Pocion -> [Efecto]
-efectosDePocion (Pocion _ [Ingrediente _ _ (listaEfectos)]) = listaEfectos
+efectosDePocion :: Pocion -> [Efecto] --CUANDO HAY QUE REVISAR TODO MAP          AL FINAL SIEMPRE PONER "SIGUIENTE" ingredientesPocion
+efectosDePocion = concat.map efectoIngrediente. ingredientesPocion
+
+--Punto 5
+
+pocionesHeavies :: [Pocion] -> [String] --CRITERIOS MAP+FILTER
+pocionesHeavies = map nombrePocion. filter ((>= 4).length.efectosDePocion)
+
+--CONCAT SOLO LO USO CUANDO LO QUE TIENE QUE DEVOLVER ESTA DENTRO DE UNA LISTA LISTA
+
+--Punto 6
+incluyeA :: [a] -> [a] -> Bool
+incluyeA x y = 
