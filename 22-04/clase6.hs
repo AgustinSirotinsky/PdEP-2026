@@ -368,6 +368,12 @@ Puedo hacer guardas y hacer pattern maching en una funcion afuera
 PLEGAR: puedo usarla para acortar funciones q definimos antes  (vi: valor inicial) (op: operacion)
     plegar op vi [] = vi
     plegar op vi (x:xs) = op x (plegar op vi xs)
+
+Fold
+    es igual a plegar  (tambien esta el foldl)
+    foldr :: ( b - a - a) -  a - [b] - a
+
+    foldl :: (a - b -a) - a - [b] - a
 ----------------------------------------------------------------------------------------------------------------------------
 
 
