@@ -394,5 +394,65 @@ EMPEZAR A USAR LAMBDA \argumentos -> cuerpo
         EJ: en un caso de usar un FOLDL y quiero ordenarlo para que lea los argumentos
         en el orden que yo los pongo --> foldl (\tupla efecto -> efecto tupla)      tupla  (efecto pocion) 
 ----------------------------------------- ----- ORIGINAL-----(mi modificacion temp)----------efectos + relectura
+-}
+
+{-
+
+SE USA $ SOBRETODO cuando usas muchas funciones para una variable sola
+---------------------------------------- CLASE 7 --------------------------------------------------------
+
+DIF ENTRE MAP Y FOLD
+    *MAP le paso una funcion y lista   y a todos le aplica por separado
+    *FOLD REDUCE TODOS A UNO, Los fuciona  Ademas lo puedo hacer en direcciones distintas
+    foldr1 NECESITA LSITA LLENA SI O SI
+    foldr -- Foldable t = (a - b - b) - b - t a - b
+                                            t es lista de a 
+    foldl -- Foldable t = (b - a - b ) - b - t a - b
+    
+        foldr trabaja de derecha a izq(RECIBE FUNCION Y DESPUES VALOR)/ foldl trabaja de izq a derecha (RECIBE EL VALOR Y DESPUES FUNCION)
+    
+    puedo usar LAMBDA par a cambiar el orden de las argumentos fold(/x f -> f x) agarra la funcion al reves
+                                                            barrita pal otro lado
+----------------------------------------------------------------------------------------------------------
+    lista n m    --Es logico que m debe ser mayor a n en este caso
+        | n == m =  [n]
+        | otherwise = n :  lista (n+1) m 
+    ---------------------IMPORTANTE cuando debemos hacer un bucle re llamar la funcion-------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+OTRAS FUNCIONES CON LISTAS (BUCLES INFINITOS)
+
+        Los DOS puntos
+            Puedo haer que haskell entienda solito  como sera mi lista con ".."
+            Ej:  [1..10] haskell me devuelve [1,2,3,4,5,6,7,8,9,10]
+
+        REPEAT
+            repetir una letra o num infinitamentes
+
+        REPLICATE
+            Te repite x cantidad de veces a (puede ser funcion, letra, etc) -- replicate x a  
+                            ---EL REPLICATE ES BASICAMENTE EL TAKE X DE REPEAT A
+
+        CYCLE
+            Repite una lista todo el tiempo.
+
+        ITERATE 
+            Recibe una funcion y elementos y lo aplica infinitamente
+--------------------------------------------------------------------------------------------------------------
+
+        TAKE
+            toma los x valores que quieras de una lista  y devuelve una lista de esos valores 
+                    Util para ejercicios cuando hay que comparar que termina con ejmpl "sos" 
+                    entonces un reverse take 3 algo asi, te lo muestra1
+
+        ELEM
+            Esta funcion  te devuelve un BOOl en el caso de que X este en la lsita -- elem x [a]
+---------------------------------------------------------------------------------------------------------
+        Las funciones que reciben listas siempre se declara con 
+        (x:xs) = .....
+        cabeza y cuerpo
+---------------------------------------------------------------------------------------------------------
+    
+
 
 -}
