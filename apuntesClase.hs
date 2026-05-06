@@ -410,7 +410,7 @@ DIF ENTRE MAP Y FOLD
     foldl -- Foldable t = (b - a - b ) - b - t a - b
     
         foldr trabaja de derecha a izq(RECIBE FUNCION Y DESPUES VALOR)/ foldl trabaja de izq a derecha (RECIBE EL VALOR Y DESPUES FUNCION)
-    
+        Otra cosa mas....
     puedo usar LAMBDA par a cambiar el orden de las argumentos fold(/x f -> f x) agarra la funcion al reves
                                                             barrita pal otro lado
 ----------------------------------------------------------------------------------------------------------
@@ -447,12 +447,39 @@ OTRAS FUNCIONES CON LISTAS (BUCLES INFINITOS)
 
         ELEM
             Esta funcion  te devuelve un BOOl en el caso de que X este en la lsita -- elem x [a]
+
 ---------------------------------------------------------------------------------------------------------
         Las funciones que reciben listas siempre se declara con 
         (x:xs) = .....
         cabeza y cuerpo
 ---------------------------------------------------------------------------------------------------------
-    
+    LAZY EVALUATION
+        Esto es cuando invoca la funcion primero y despues calcula el elemento
+        (HASKELL)
+            Evaluo lo justo y necesario. Evaluo error cuando aplique la funcion
+
+    EAGER EVALUATION
+        Esto es cuando primero calcula el elemento y depues invoca la funcion
+        (otro codigo como C)
+            Es util cuando queiro destectar errores temprano
+
+              ======== doble (2+3) =========
+                doble 5  | (2+3) + (2+3)
+                   5 + 5 |  5 + 5
+                    10   |   10
+                         |
+                EAGER    |   LAZY (HASKELL)
+              ==============================
+
+----------------------------------------------------------------------------------------------------------------------
+    UNDERFINED 
+        Es una variable para que te tire error, quizas para encontrar problemas. ES todo los tipos al mismo timepo
+----------------------------------------------------------------------------------------------------------------------
+    Evalucion diferida :)
+    Trasparencia referencial --- HAskell la tiene automatica
+
+
+
 
 
 -}
