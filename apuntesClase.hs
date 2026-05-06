@@ -11,7 +11,7 @@ sumar2 = (+) 2
 -- Es una funcion cuyo dominio lo asume a partir del 2 (no lo defini)
 sumar3 = (+ 2)
 --Es lo mismo, es otra forma de escribir la suma. Ademas (2 +) es lo msimo es comutativa  
--- "sumarx = x +" no sirve, es necesario los parentesis
+-- "sumar = x +" no sirve, es necesario los parentesis
 -- algo que no e ve es   q en cada igual para cada func, es como decir "x = (+) 2 x"
 -- x es el parametro. pero como esta en cada lado se simplifica. Las Funciones son implici
 
