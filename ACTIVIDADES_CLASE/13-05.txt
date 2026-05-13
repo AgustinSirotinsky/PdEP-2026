@@ -1,0 +1,225 @@
+
+
+type Artefacto = (String, Int)
+
+xiphos :: Artefacto
+xiphos = ("Xiphos", 50)
+
+rayo :: Artefacto
+rayo = ("Rayo", 500)
+
+pasarALaHistoria :: Heroe -> Heroe 
+pasarALaHistoria unHeroe 
+	| reconocimiento unHeroe > 1000 = cambiarEpiteto "El Mitico" unHeroe
+	| reconocimiento unHeroe > 500  = cambiarEpiteto "El Magnifico" (agregarArtefacto rayo unHeroe)
+	| reconocimiento unHeroe > 100  = (cambiarEpiteto "Hoplita" . agregarArtefacto xiphos ) unHeroe
+	| otherwise                     = unHeroe
+
+
+1)
+
+Heroes, Necesitan:
+	- Nombre (not really)
+	- Epiteto
+	- Reconocimiento
+	- [Artefactos]
+
+
+
+data Heroe = Heroe String String Int [Artefacto]
+
+O
+
+data Heroe  = Heroe {
+	epiteto :: String,
+	reconocimiento :: Int,
+	artefactos :: [Artefacto]
+	tareas :: [Tareas]
+}
+
+
+
+cambiarEpiteto :: String -> Heroe -> Heroe
+cambiarEpiteto unEpiteto unHeroe =
+	unHeroe { epiteto = unEpiteto }
+
+agregarArtefacto :: Artefacto -> Heroes -> Heroe
+agregarArtefacto unArtefacto unHeroe = 
+	unHeroe { artefactos = unArtefacto : artefactos unHeroe } 
+	
+
+agregarArtefacto' = Artefacto -> Heroe -> Heroe
+agregarArtefacto' = unArtefacto (Heroe epiteto reconocimiento artefactos tareas) =
+	Hero epiteto reconocimiento (artefactos ++ [unArtefacto] tareas)
+
+
+Tareas:
+
+type Tarea :: Heroe -> Heroe
+
+ganarReconocimiento :: Int -> Heroe -> Heroe
+ganarReconocimiento unReconocimiento unHeroe = unHeroe {
+	reconocimiento = reconocimiento unHeroe + unReconocimiento
+} 
+
+encontrarArtefacto :: Artefacto -> Tarea
+encontrarArtefacto unArtefacto unHeroe =
+	ganarReconocimiento (rareza unArtefacto) (agregarArtefacto unArtefacto)
+
+
+mapArtefactos :: ([Artefacto] -> [Artefacto]) -> Heroe -> Heroe
+mapArtefactos funcion unHeroe = unHeroe { 
+	artefactos = funcion (artefactos unHeroe) 
+} 
+
+triplicarRarezaDeRaos :: [Artefacto] -> [Artefacto]
+triplicarRarezaDeRaros unosArtefactos = filter esRaro (map triplicarRareza unosArtefactos)
+
+esRaro :: Artefacto -> Bool
+esRaro = (>1000) . rareza
+
+
+ayudarACruzarLaCalle :: Int -> Tarea
+ayudarACruzarLaCalle cantCuadras unHeroe = cambiarEpipeto ("Gros" ++ replicate unasCuadras 'o')
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+escalarElOlimpo :: Tarea
+escalarElOLimpo unHeroe {
+	(ganarReconocimiento 500 unHeroe)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TODO ESTO ESTA MAL ESTA MAL ESTA MAL!! PORQUE NO ES FUNCIONAL ES HASKELL
+
+encontrarArtefacto :: Heroe -> Artefacto -> Heroe
+-- encontrarArtefacto :: Artefacto -> Tarea
+encontrarArtefacto unArtefacto unHeroe =
+	unHeroe {
+		reconocimiento = reconoicmeitno unHeroe + rareza unArtefacto,
+		artefactos = unArtefacto : artefactos unHeroe
+	}
+
+escalarElOlimpo :: Tarea
+escalarElOlimpo unHeroe = 
+	unHeroe {
+		reconocimiento = reconocimiento unHeroe + 500,
+		artefactos = rayo : filter ((>1000).rareza) (triplicarRarezas unHeroe),
+	}
+
+triplicarRareza :: Artefacto -> Artefacto 
+triplicarRareza (nombre, rareza) = (nombre, rareza * 3)
+
+triplicarRarezas :: Heroe -> [Artefacto]
+triplicarRarezas unHeroe = map triplicarRareza (artefactos unHeroe)
+
+OTHER STUFF NO PARCIAL::
+
+ghci>
+ghci> apply even 2
+True
+ghci> even 2 -----|
+True              | same shit
+ghci> even $ 2 ---|
+True
+ghci> map (*2) $ filter even [1..10]
+[4,8,12,16,20]
+
+
+me when I'm in class and I have a really intense urge to go and READ MY BOOK I WANT TO READ MY BOOK JUST 100 PAGES LEFT!!!!!!!!
+THANKG GOD I quit weed now instead of paranoid im Anxious all the time woohoo
+trying to find something that looks as cool as smoking cigarretes without the disadvantage of not reaching 40 years old - maybe lolipops or smth
+me when I'm in class and I have a really intense urge to go and PLAY ROBLOX I LOVE ROBLOX I PLAY A MINING GAME AND I'M REALLY GOOD AT IT
+DUUUUDE I'M SO FUCKING TWEAKED OF OFF THIS mate FROM MY BROSTOUNE TIAGO I'M SO FUCKING UP YOOOO I NEED TO SMOKE CRACK GIVE ME CRAKC RIGHT NOOOOOW
+on second thought i think that crack is not very good for you so i'm not going to take it buy anyways dude who cares man who careeees
+this is like that one south park bit where the guy says 'I like applkes and bananas' except I dont really like apples and bananas I mostly like bananas I mean I'm chuggig those mfs like 3 a day they're so fucking good but appleas mm I dont really care much for apples
+Actually why tf would that be like that bit it doesnt have anything to do with it. Why the fuck did I say it was like that one bit, who do I lie dude what do I gain from it
+honestly dude this much energy CAN NOT be healthy but I'm just going I'll keep going just to see how much I can feel holy shit this doesn't even make sense is this how people feel when they are on caffeine?? I thought they just felt like a little bit more energy but this shit is FUCKING CRAZY
+WHY WOULD PEOPLE SMOKE WEED TO '''''''''''RELAX''''''''' WHEN YOU CAN FEEL GOOD INSTEAD, WHAT THE FUCK DOES IT EVEN DO LIKE IT NUMBS YOU I HAVE SOMETHING THAT DOES JUST THAT BUDDY ITS CALLED 'BEING SLEEPY MOTHERFUCKER'
+what does it mean to love and be loved, maybe it means to feel something, good or bad, because in the words of a great philosopher 'locing means hurting yourself for another person willingly', but can love be interpeted as just that one thing, or does it have facets, and layers. In this essay I will
+I FUCKING LOVE DRINKING CAFFEINE I'M NEVER GOING BACK WOOO
+DUDE I CAN0TS TOP MOVING WHY WOU 
+DUDE NOW I WANT TO SMOKE CRACK OR SOMETHING AND GO ON A CLASS ON MY UNIVERSITY UTN THAT WOULD BE COOL RIGHT??= I DONT KNOW MAYBE I DONT KNOW
+hi mi name is mike
+hello mike whats your name
+i just told you
+I NEED TO STOP FUCKING SMILING DUDE I LOOK BAD SMILING
+I MEAN JUST NOW I MEAN NOT EVER I LIKE MY SMILE
+POSITIVITY YES !!!!!!!!!!!!!!!!!!!!!!!!
+DUDE I DONT KNOW MAYBE ITS THE SUGAR I ATE LIKE CHOCLATE CERALS TODAY I NEVER DO THAT ALSO I EXCERCISED BUT LIKE FOR 30 MINUTES NOT FOR MORE SO I DONKT KNOW MAYBE THATS IT BUT I DONT THINK SO
+OKAY ITS HAPPENING IM PARANOID FUCK MAN I GUESS I NEED TO QUIT DRINKING CAFFEINE OR SHOULD I SAY SNORTING COCAINE
+SOON_BANDA HAS A VLOG WHERE WE TRAVEL THE WORLD !!! (CABA TO RAFAELA, SANTA FE) YOU SHOULD GO SEE IT DUDE NOW NOW NOW NOW NOW NOW NOW NOW
+DUDE THAT ONE MOVIE FUCKING SUCKED YOU KNOW THAT ONE WITH RYAN GOSLING, FUCK IT SUCKS THAT IS SUCKS BECAUSE THAT MUTHERFUCKER APPARENTLY IS GENDERFLUID AS FUCK, BUT ALAS ALL RICH PEOPLE ARE BAD OR LIKE YOU CAN'T BE THAT RICH AND BE NICE OR LIKE YOU CAN0T HAVE THAT MUCH MONEY AND BE A DECENT PERSON OR WHATEVER
+dude im watching white like I'm literally just watching white my whole vision is just like white what like Oh it worked my vision is back oh wow how quaint how peculiar
+ok if I dont stop drinking then I think I'm going to throw up but alas I will keep drinking because its funnnn
+the water os gone. its all gone
+I dont have my rings maybe that's why I feel so good they keep me down because they make look cool af
+THIS IS LKE THAT HOUSE EPISODE WHERE WILSON IS LIKE NO I'M OT ON ANTIDEPRESSANTS AND THEN HE IS AND LIKE HE YAWNS EVEN THOUGH HES ON EXTASIS WOW HOW CRAZY 
+I have now 3 cd covers wow!! thats so much I'm so happy can't you tell
+I think that I'm jsut alert becuase of the test on saturday oh man :(
+I STILL DRINK MATE REGARDLESS
+I DON0T UNDERSTAND BASI WORDS LIKE 'HELLO' AND THANK YOU' I ONLY KNOW HOW TO SAY 'GOODBYE' AND 'FUCK YOU'
+holy cow I might trow up :D 
+the keyboard like recording of an osu mania player be like : dskjdfjfkddkfjjfdkkkkdfjdfkjddjfkdfjjfkfjkdkkdjdkkdjdkfjkdfjkdfjkdjfkjkdf alt+f4 ctrl+alt+t google.com tab gun for killin myslef 
+I DONT PLAY OSU MANIA I PLAY ROBLOX DID I MENTION THAT IM REALLY GOOD AT THE MINING GAME
+WHAT
+EVER HEARD OF A CALLBACK JOKE
+THE FUCKING THINY IS REALLY FUCKING HOT WHY IS SO HOT OMG WHY IS SO HOT MY TONGUE IS LIKE A LITTLE BUT BURNED BUT LIKE NOT A LOT YK BC IM TOUGH OR WHATEVER IDK IDC SMTH BE LIKE ABC DEF GHI OR SOMEHLIR TLIKE THAT HEY LOOK TLOR LIKE APAPAP
+me when I go crazy after drinking the crazy plant
+me when I go excitedly to get married after drinking the excitedly getting married plant
+me when I go happyy after driniking the happy plant
+you don0t drink plants you eat them
+me when I correct my self after drinking the correcting yourself plant
+you didn't even change it why didn't you change it
+me when I
+stop
+I LIKE TRIPLICATING SOME RAREZAS
+I actually kind of stopped listening but I just nod and like study in my house and get a good grade its like 1738 I'm like hey hello what's up
+NOw whatch me whip
+Now whatch me nae nae
+NOw watch me wip
+whoip
+watch me nae nae
+thats crazy that was so viral and now nobody finds it funny
+niw watch me nae nae
+generetional
+I KIND OF WORRY THAT PEOPLE WILL STARE AT ME NOT BECAUSE OF HOW I LOOK BUT BECAUSE THIS KEYBOARD IS SO FUCKING LOUD OH MY FUCKING GOD HOW CAN YOU BE FUCKING LOAD WHAT ARE A TUTORIAL FOR INSTALLING LINUX DO YOU GET IT
+DO YOU GET IT
+I AM THE GOAT OF GOING IN THE WOODS
+I pay with my body for trinkets and magic talismen
+I pay with my body for trinkets and rocks
+I pay with my body for little trinkets and small plants
+I EAT PLANTS FOR LIKE LUNCH AND MAYBE DINNER TONIGHT NOT SURE I AM CRAVING BUGS AND DIRT
+MY DRINK IS HOT 
+I LIKE MY DRINK LIKE I LIKE MY MEN WITH LIKE A TERMINAL I CAN CODE INTO
+7
+dross the gamer
+I GO CRAZY WHEN I CODE DONT APPROACH ME DONT APPROACH ME I AM CRAZYING OUT
+shes fujoshing out
