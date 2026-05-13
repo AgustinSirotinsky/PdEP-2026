@@ -80,7 +80,22 @@ esRaro = (>1000) . rareza
 
 
 ayudarACruzarLaCalle :: Int -> Tarea
+ayudarACruzarLaCalle 0 unHeroe = unHeroe
 ayudarACruzarLaCalle cantCuadras unHeroe = cambiarEpipeto ("Gros" ++ replicate unasCuadras 'o')
+
+matarALaBestia :: Bestia -> Tarea
+matarALaBestia unaBestia unHeroe
+	| (debilidad unaBestia) unHeroe = cambiarEpiteto ("EL asesino de " ++ nombre unaBestia) unHeroe
+	| otherwise 			= (cambiarEpiteto "El cobarde" . mapArtefactos (drop 1)) unHeroe
+
+
+data Bestia = Bestia {
+	nombre :: String,
+	debilidad :: Debilidad
+}
+
+sumaRarezas :: [Artefacto] -> Int
+sumaRarezas = sum (map rareza artefactos)
 	
 
 
@@ -223,3 +238,14 @@ I LIKE MY DRINK LIKE I LIKE MY MEN WITH LIKE A TERMINAL I CAN CODE INTO
 dross the gamer
 I GO CRAZY WHEN I CODE DONT APPROACH ME DONT APPROACH ME I AM CRAZYING OUT
 shes fujoshing out
+IMAGING GOING CRAZY IN LOLAPALOOZA 2026 THAT WOULD BE INDEED LOLAPAPLOOCRAZY OR MAYBE IF IM ALLOWED TO BE BOLD CRAZYPALOOZA
+chatgpt be like: hello my name is chatgot pt like got playable teaser hey I'm going to take the water usage of like a small country that's cool right
+hey you guys know billie joel right well I can play one of his songs *walks one step to the piano and dissapears* wow hey what happened
+how can you spend a nickel everyday and STILL get a new nickel every week, hi, I'm james, and in this video I'm going to be giving a nickel every day to a guy that has ASSURED me I will get a BRAND NEW nickel once a week
+me when i get a nickel after drinking the nickel plant
+I HAVE A MUL AMOUNT OF CENTINELS JUST WAITING FOR YOU AT THE END OF THE ROAD CRASH BANDICOOT JUST YOU WAIT YOU WILL REGRET EVER TRYING TO DEFEAT THE GREAT SONIC
+that one is just bad I can admit that they'te not all bangers or like at least we have ONE that is not a banger
+I HAVE CENTINELS
+yeah there we go
+IF YOU PICK THE FIRST LETTER OF EVERY SINGLE MESSAGE IT GIVES A SECRET MESSAGE, I DIDN'T PLAN THAT SO I HAVE NO FUCKING IDEA WHAT IT SAYS BUT DUDE YOU HAVE TO TRUST ME MAYBE IM IN A FUCKING BUNKER SOMEWHERE WHO KNOWS
+this shit is sweet like my wife I love my wife I just wish I wasn't on hetslop yk
