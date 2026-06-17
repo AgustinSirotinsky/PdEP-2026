@@ -152,4 +152,41 @@ esFacil(Materia) :-
 
     PRINCIPIO DE UNIVERSO CERRADO (nuestra base de ocnociemiento se rige por este principio)
         es decir todo lo que le damos a la base de conocimiento (nuestro codigo), lo que no esta ES FALSO
+
+
+    Si en un predicado, uso una variable que contiene 3 cosas, si no lo uso PONGO "_"
+    
+    EXISTE RECURSIVIDAD 
+
+    Atento a las boludeces como que necesito o no usar  uno de los individuos y asa 
+
+*/
+
+profesor(feli, paradigmas, k2002)
+
+
+
+/* Ejercicio 
+
+    expertoEnElTema (Profesor) :- 
+        profesor(Profesor, Materia, _),
+        profesor(Profesor, Materia2,_),
+        sonCorrelativas(Materia2, Materia). 
+
+    UNA CLAUSULA ES UNA DISYUNCION, POR LO QUE VA A RESOLVER TODAS LAS POSIBILIDADES POSIBLES. POR ESO EL ORDEN DE VARIABLES 
+        NO IMPORTA. xq resulve un caso, despues otro, otro y los une con un v (||, o) entonces por eso da true de una forma y 
+        otra.
+
+    Ligar-- osea que sigue una variablee por decir asi
+
+
+    EJERCICIO 2
+
+    masDeUnCurso (Profesor,Materia):-
+        profesor (Profesor,Materia, Curso1),
+        prosesor (Profesor,Materia, Curso2),
+        Curso1 (barraInclinda izquierda)= Curso2.
+
+    IMPORTANTE EL ORDEN, porque no puedo igualar sin haber declarado antes.
+
 */
