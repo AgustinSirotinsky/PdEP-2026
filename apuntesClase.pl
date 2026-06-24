@@ -288,4 +288,7 @@ profesor(feli, paradigmas, k2002).
 
                 IS ES SOLO PARA CUENTA MATEMATICA (no usarlo para que sea que sea igual a un numero tipo "is 6/0")
                                                                 DA MAL. ASI NO
+
+        pueden haber varios predicados  dentro del not peroooo ENTRE PARENTESIS
+
 */
