@@ -162,7 +162,7 @@ esFacil(Materia) :-
 
 */
 
-profesor(feli, paradigmas, k2002)
+profesor(feli, paradigmas, k2002).
 
 
 
@@ -189,4 +189,103 @@ profesor(feli, paradigmas, k2002)
 
     IMPORTANTE EL ORDEN, porque no puedo igualar sin haber declarado antes.
 
+
+*/
+
+
+
+/*
+    clase 2
+        Ejercicio de los simpsons
+            declaras los hijos
+
+            tienteHijo(Personaje):-
+                padreDe(Personaje,_).
+
+            tieneHijo(Personaje):-
+                madreDe(Personaje,_).
+
+                (se hace dos veces porque cada clausula es una disyuncion, la coma conjuncion serian  que se cumlan simul)
+            
+            hermanos (Personaje1, Personaje2):-
+                madreDe(Madre, Personaje1),
+                madreDe(Madre,Personaje2),----- y lo mismo qye padres
+
+                (el poner Madre ya se queda con la misma Mddre)
+
+            ACORDAR DE DIFERENCIAR 
+
+            medioHermanos(P,P2):-
+                (hacer clausula en para un progenitor)
+
+
+            RECORDAR DE DELEGAR LO QUE MAS PUEDA 
+            PONER VARIABLE DISTINTA IGUALMANTE EL CASO DE QUE SEAN IGUALES  LO VA A PROBAR  \= para decirle que no a tal cosa
+
+            CLAUSULAS IGUALES TODAS JUNTAS O ERROR AL COMPILAR
+
+            tioDe(Tio,Sobrino):-
+                (agarro el padre)
+                padreDe(Padre, Sobrino),
+                hermano (Tio,Padre).
+
+            Lo mismo con madre
+
+
+            no importa el orden y al mismo tiempo si. Importa mas para las restricciones y ligar valores.
+
+            USAR RECURSIVVIDAD (sobretodo en ejercicio que no aclara cuantas veces)
+
+
+            NO IMPORTA QUE REPITA RESULT, ESTA BIEN
+
+
+        NEGACION
+            not(_).
+                recibe UN VALOR DE VERDAD, NOs va a importar el orden. osea le meto una funcion que sabemos que se cumple o no
+                    O al menos lo resolvmos antes en la clausula o en otro predicado
+                    LAS NEGACIONES AL FINALLLLLL O NUNCA PRIMERO AL MENOS. Porque agarra a las madre y devuelve false, si devuelve false ya 
+                    esta 
+
+            Siempre queremos que al not().  entren variables ya definidas. Por eso va abajo o despues en genereal.
+            sin eso como que pierden la gracia
+
+
+            NO SE USA EL NOT PARA QUE AVERIGUE VARIABLE, SE LAS TENGO QUE DAr YO. pueden ser ochocientas pero ya las busque yo
+            no tiene porque buscar en toda la base de conocimiento. Solo en los datos que les doy yo.
+
+            aunque solo necesites buscar una Variable IGUAL. Siempre primero hacelo 
+
+        INVERSIBILIDAD
+            Cuando la dar vuelta predicados funciona igual y asa´
+            Que tengan valor de verdad creo? -- LIGADAS
+
+        Con preguntas existenciales me devuelven algo distinto a bool
+            "is" puedo ussar esto para que me divuelva calculos
+            NOMBREVARIABLE is OPERACIONMATEMATICA esto 
+                Es como decir especificamente lo que es la variable, como decir que Promedio is blah  blah. 
+                En consola cuando pregunte por el Promedio me va a dar el numero
+
+            El is se puede usar par consultar "2 if 2+0." devuelve true
+            Es similar a not. PREGUNTAR ANTES POR LAS VaRIABLES. porque sin definir no puede.
+            el is se puede escbir asi: 
+                                        is(X,2+2)
+                    similar a haskell
+
+        Prolog es pesimo resoludor matematico. No busca eso-.
+        
+
+        FUNCIONES UTILES ========================================================================================
+
+            not(_). ---  Negar. Es similar al \=
+
+           (_) is (expresion matematica) --- es como para fijar que esa variable va algo trabajado
+
+        =========================================================================================================
+
+            IMPORTANTE en ambos casos tenemos que definir previamente la varaible, es decir saber de donde salen
+                De donde la base de datos est´a, que cumplen
+
+                IS ES SOLO PARA CUENTA MATEMATICA (no usarlo para que sea que sea igual a un numero tipo "is 6/0")
+                                                                DA MAL. ASI NO
 */
