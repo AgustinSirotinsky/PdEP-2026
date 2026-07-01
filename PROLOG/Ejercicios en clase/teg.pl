@@ -62,3 +62,31 @@ cubaLibre(Pais):-
     paisContinente(_,Pais),
     not(ocupa(Pais,_)).
 
+%%leFaltaMucho/2 
+leFaltaMucho(Jugador,Continente):-
+    estaEnContinente(Jugador,Continente),
+    not(ocupeDosPaisesOMas(Jugador,Continente)).
+
+ocupeDosPaisesOMas(Jugador,Continente):-
+    paisContinente(Continente,Pais1),
+    paisContinente(Continente,Pais2),
+    ocupa(Pais1,Jugador),
+    ocupa(Pais2,Jugador),
+    Pais1 \= Pais2.
+
+%%es como decir que el conntinente tiene almenos 2 distintos y no tiene ninguno
+sonLimitrofes(Pais1, Pais2):-
+
+    limitrofes(Pais1,Pais2).
+
+tipoImportante(Jugador):-
+    ocupa(_,Jugador),
+    forall(paisImportante(Pais),ocupa(Pais,Jugador)).
+
+
+estaEnElHorno(Pais):-
+    ocupaEn(Continente,Jugador,Pais),
+    ocupaEn(Continente,Rival,_)
+    paisContinente(_,Pais),
+    Jugador =\ Rival,
+    forall(sonLimitrofes(Pais,Paises), ocupa(Paises,Rival))
