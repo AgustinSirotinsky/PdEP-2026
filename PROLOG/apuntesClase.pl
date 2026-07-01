@@ -289,6 +289,81 @@ profesor(feli, paradigmas, k2002).
                 IS ES SOLO PARA CUENTA MATEMATICA (no usarlo para que sea que sea igual a un numero tipo "is 6/0")
                                                                 DA MAL. ASI NO
 
-        pueden haber varios predicados  dentro del not peroooo ENTRE PARENTESIS
+        pueden haber varios predicados  dentro del not peroooo ENTRE PARENTESIS   
 
+*/
+
+/*
+    Clase 3
+
+    Ejercicio de mundial 
+      *base de datos*
+       HECHOS --- 
+      gano (argentina,argelia).
+      
+      REGLA
+      gano (Pais, OtroPais, Goles, GolesOtro ):-
+         partido (Pais, OtroPais, Goles, GolesOtro ),
+         Goles *Mayor* GolesOtro.
+
+      Perdio (se repite)
+
+      resultado (Pais,OtroPais,perdio) :-
+        *se escribe lo que pasa si pierde
+      resultado (Pais,OtroPais, gano):-
+        *Como gana*
+
+        Este caso es rado porque ya se que gano o perdio
+
+                Mal
+        empato (Pais, OtroPais):-
+           partido (Pais, OtroPais, GolesPais, GolesOtro). NO SE PUEDE USAR =. DEbes usar la misma variable
+                
+                BIEN
+        empato (Pais, OtroPais):-
+           partido (Pais, OtroPais, GolesPais, GolesPais). Aca le estoy diciendo que toma la imism variable
+
+        Si Quiero usar una basse de dato, pero que funcione de un sentido y el otro
+            partido ( Pais, OtroPais, Goles, OtrosGoles):-
+                partido(otroPais, Pais, OtrosGoles, Goles).
+
+        Tiene un problema, ES RECURSIVO INFININTAMENTE, igualmente EN logico no generea un problema realmente
+        solo que los resultados van a ser infinitos. No importa, lo que queremos es que nos devuelva al menos una
+        respuesta
+
+        invicto (Pais):-
+            partido(Pais,_,_,_),  ---------------------- generar el pais
+            not(perdio(pais,_)). 
+
+         Inversiblilidad es preguntar con variables y funciona (su no entiendi mal)
+
+        Como vas a tener que generar el pais mil veces s e puede hace una general!
+            pais(Pais):-
+                partido(Pais,_,_;_).
+
+
+        Se Puede Negar dos veces. PEROOOOO dentro de la negacion tener que declar (creo).
+        Escribir la oracion puede ayudar
+
+
+        FORALL
+            en este declaras adentro  creo (decalar) adentro y afuera --- despues la funcion
+
+        el declarar adentro es cuadno necesitas una varaible libre, que entre todo
+        medio como algebra.  ej: (y-x,y, z-y)---- y(1-1,1,1-1) entonces y es varaible libre. se entiende? o cuando x= 3y y z=2y
+        Ambos son en funcion de y. Es esto lo que tenes que hacer
+
+            se lo puede entender como V x:{ x e R/...}  son para TODOS los x (declarado afuera) 
+
+        ============================================================================================================
+            Cosas Nuevas!!
+
+                Generar una Declarador General ------ algo(Vaiable):-
+                                                            predicado(Variable....).
+
+                NO se usa el = para igaular. Debes usar el mismo nombre de varaible.
+
+                Menor/Mayor e igual son caras tristes end distinta
+
+        ============================================================================================================
 */
