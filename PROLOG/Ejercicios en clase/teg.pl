@@ -63,18 +63,31 @@ cubaLibre(Pais):-
     paisContinente(_,Pais),
     not(ocupa(Pais,_)).
 
+%%leFaltaMucho/2 
+leFaltaMucho(Jugador,Continente):-
+    estaEnContinente(Jugador,Continente),
+    not(ocupeDosPaisesOMas(Jugador,Continente)).
 
-% leFaltaMucho/2: relaciona a un jugador si está en un continente pero le falta ocupar otros 2 países o más.
+ocupeDosPaisesOMas(Jugador,Continente):-
+    paisContinente(Continente,Pais1),
+    paisContinente(Continente,Pais2),
+    ocupa(Pais1,Jugador),
+    ocupa(Pais2,Jugador),
+    Pais1 \= Pais2.
 
-% sonLimitrofes/2: relaciona dos países si son limítrofes considerando que si A es limítrofe de B, entonces B también es limítrofe de A.
-
+%%es como decir que el conntinente tiene almenos 2 distintos y no tiene ninguno
 sonLimitrofes(Pais1, Pais2):-
-    limitrofes(Pais1, Pais2),
-    Pais1 \= Pais2 .
-    
-% tipoImportante/1: un jugador es importante si ocupa todos los países importantes.
 
-% estaEnElHorno/1: un país está en el horno si todos sus países limítrofes están ocupados por el mismo jugador que no es el mismo que ocupa ese país.
+    limitrofes(Pais1,Pais2).
 
-% esCompartido/1: un continente es compartido si hay dos o más jugadores en él.
+tipoImportante(Jugador):-
+    ocupa(_,Jugador),
+    forall(paisImportante(Pais),ocupa(Pais,Jugador)).
 
+
+estaEnElHorno(Pais):-
+    ocupaEn(Continente,Jugador,Pais),
+    ocupaEn(Continente,Rival,_)
+    paisContinente(_,Pais),
+    Jugador =\ Rival,
+    forall(sonLimitrofes(Pais,Paises), ocupa(Paises,Rival))
