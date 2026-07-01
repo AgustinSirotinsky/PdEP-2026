@@ -26,6 +26,8 @@ limitrofes(nepal, india).
 limitrofes(china, india).
 limitrofes(nepal, china).
 limitrofes(afganistan, china).
+limitrofes(Pais1, Pais2):-
+    limitrofes(Pais2, Pais1).
 
 ocupa(argentina, azul).
 ocupa(bolivia, rojo).
@@ -45,20 +47,34 @@ continente(americaDelSur).
 continente(europa).
 continente(asia).
 
-
-%%estaEnContinente/2
+%%estaEnContinente/2 - relaciona un jugador y un continente si el jugador ocupa al menos un pais en el continente.
 
 estaEnContinente(Jugador,Continente):-
     ocupa(Pais,Jugador),
     paisContinente(Continente,Pais).
 
-%%ocupaContinente/2
+%%ocupaContinente/2 - relaciona un jugador y un continente si el jugador ocupa totalmente el continente.
 ocupaContinente(Jugador, Continente):-
     continente(Continente),
     forall(paisContinente(Continente,Pais), ocupa(Pais,Jugador)).
 
-%%cubaLibre/1
+%%cubaLibre/1 - es verdadero para un país si nadie lo ocupa.
 cubaLibre(Pais):-
     paisContinente(_,Pais),
     not(ocupa(Pais,_)).
+
+
+% leFaltaMucho/2: relaciona a un jugador si está en un continente pero le falta ocupar otros 2 países o más.
+
+% sonLimitrofes/2: relaciona dos países si son limítrofes considerando que si A es limítrofe de B, entonces B también es limítrofe de A.
+
+sonLimitrofes(Pais1, Pais2):-
+    limitrofes(Pais1, Pais2),
+    Pais1 \= Pais2 .
+    
+% tipoImportante/1: un jugador es importante si ocupa todos los países importantes.
+
+% estaEnElHorno/1: un país está en el horno si todos sus países limítrofes están ocupados por el mismo jugador que no es el mismo que ocupa ese país.
+
+% esCompartido/1: un continente es compartido si hay dos o más jugadores en él.
 
