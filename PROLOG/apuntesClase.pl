@@ -279,7 +279,7 @@ profesor(feli, paradigmas, k2002).
 
             not(_). ---  Negar. Es similar al \=
 
-           (_) is (expresion matematica) --- es como para fijar que esa variable va algo trabajado
+            (_) is (expresion matematica) --- es como para fijar que esa variable va algo trabajado
 
         =========================================================================================================
 
@@ -367,3 +367,87 @@ profesor(feli, paradigmas, k2002).
 
         ============================================================================================================
 */
+
+/*
+    Clase 4
+        Functores y listas propediades o relaciones compuesta de individuos
+
+        LISTAS
+            Pueden ser muchas cosas dentro, puedo inclusive hacer lsitas de listas
+            No siempre necesario, puedo armar grupos. PEro hay casos que si o si
+            
+            Se  escribien entre corchetes
+                [algo,....,otra]
+            Como no hay tipos estrictos como en otros codigos, puedo armar una lista de numeros y palabras. todo mezclado
+
+                (los strings son atomos)
+
+
+            Existe un predicado para el largo llamada "length/2"
+                length (Atomo, Largo). 
+                Es parcialmente inversible limitado AL DOMINIO no podes mandarle largo negativo
+                Cuando pregunto por length (_,3).  Me devuelve [_,_,_] un wacho
+                Si yo le doy length (Lista, Largo). me va delvoer como arriba (si es que no tengo nada en la base de dato, obvio)
+
+
+                ALGO OPCIONAL (no le vemos)
+                    como en haskell tenemos (x:xs) para simbolizar una lsita
+                    en Prolog tenemos Cabeza|Cola   por eso a veces te puede devolver [Cosistas|...] indincando que continua
+
+            Tenemos tambien un Elem (indicaba si esta en una lista algo). Tenemos "memeber/2"
+                member(Individuo,Lista).
+                Es inversible (recordar aca que inversible es que yo puedo usar una variable para ver cuales cumpla en cualquier aridad)
+
+            nth0/3 es otra. Es busqueda por indice. PErmite ver en que posicion. (Cuenta el cero)
+                    nth0(Posicion, Lista, Individuo). 
+                    El cero de siboliza que numero es el primero, si uso nth0 o nth1 varia el valor de la posicion
+
+
+            Las listas son utiles para poder saber el orden de las cosas. 
+
+            append/3 es para concatenear (lista, otraLista, ListaNeuva)
+            union/3 -- Union matematica
+            interseccion/3 --Intersecion matematica
+            Max_memeber/2 --EL MAYOR DE Lista (la lista es segunda creoooo)
+            min_member/2 -- EL MINIMO
+
+
+            Predicado que me responde cuales cumplen algo ---- findall/3 ---- Sirve para trabajarlo como CONJUNTO (da una lsita)
+             findall(VariableDeItneres, Consulta, Lsita ) La consulta son predicados. ESTO  QUIERE DECIR QUE HAY QUE DECLARARRRRRRR
+
+            
+
+            Cuando yo creo funciones para averiguar ALGo, esta bueno usar como una aridad mas para que ese sea el resultado. Como como
+             el aprend y asi
+
+            Predicado de suma de los elementos de lista. es sumlist(Lista, Resultado).
+                su inversibilidad es particular porque pueden existir infintas listas que suman. POR LO QUE NO ES TOTALMENTE INVERSIBLE
+                No permite devolver lsitas asi libremente. Tira error porque hay infinitas combinaciones de listas
+
+            Algo es parcialmente inversible si es que me puede devolver las varaibles de una de sus aridades. Si las dos funcionan
+             esTotalmente inversible
+
+
+
+            ================================================================================================================
+                Listas
+                    Van entre corchetes y puede variar
+
+                    predicados utiles (est´an en la guia de lenguajes)
+                        length(Lista, Largo).
+                        member(Individuo, ListaALaQuePertenece). (ES LA UNICA QUE VA LA LISTA SEGUNDA)
+                        nth0 (POsicion, Lista, Individuo).
+                        append/3 es para concatenear (lista, otraLista, ListaNeuva)
+                        union/3 -- Union matematica
+                        interseccion/3 --Intersecion matematica
+                        Max_memeber/2 --EL MAYOR DE Lista (la lista es segunda creoooo)
+                        min_member/2 -- EL MINIMO
+                        findall(VariableDeItneres, Consulta, Lsita )
+                        sumlist/2 (Lista,Ressultado). 
+            ================================================================================================================
+
+
+ cntrl + k + c     para comentar lo seleccionado
+
+*/
+
