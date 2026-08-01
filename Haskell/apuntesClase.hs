@@ -155,7 +155,7 @@ hidrogenoNum = 1
 nombreDeElementos = ["hidro", "carbo"] 
 --lo mismo pero con los numeros
 
---DATA (basicamente estructura del c++)
+--DATA (basicamente estructura del c++) -
 
 data Elemento = Elemento String Int String
     deriving (Show, Eq) 
