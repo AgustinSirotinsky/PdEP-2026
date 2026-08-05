@@ -451,3 +451,33 @@ profesor(feli, paradigmas, k2002).
 
 */
 
+/*
+    CLASE 5
+    listas-> [x,Y|xs] la cabeza es x, la cola es xs. para separar elementos es coma y para la cola es |
+
+    Estar atento a lso casos que contempla una func
+
+    Funtctores 
+        tienen arida como los predicado.
+        Son individuos Compuestos. Nos permite guarar lo que queremos de ahi! 
+        Podemos usarlas para guardar listas creo
+
+        como usarlo?, basicamente cuando uses una funcion, como ultimo argumento que le das nomre_Functor(), dentro de () son lso datos utlites 
+        es un poco como un tipo de datos.
+
+        Despues los usas como lista en la cual buscar!  Osea en un findall (Trabajador, trabajaEn (Pelicula, Trabajador),Trabajadores)  ESto quiere decir que me va dejar buscar todos lso trabajadores que cumpla
+
+        LOS FUNCTORES RELACIONAN COSAS
+
+    Polimorfismo
+        esto se refiere cunao un predicado puede recibir distintos tipos de individuos. Por ejemplo un predicado que reciba un atomo o un numero.
+        ===========================================================================================================================================
+            Crear lista que cumplan (filter) -> findAll (algo, condicion(...,algo), ALGOES) 
+            Functores -> individuos compuestos,guardas lo que quieras. -> preicado (blah, blah, functor(....)) e esta manera podes tener istntas tipos para una misma funcion.
+                functor vacios es sin los ()
+        ===========================================================================================================================================
+
+        Las funciones principales en un examen  deben ser inversibles
+
+
+*/
