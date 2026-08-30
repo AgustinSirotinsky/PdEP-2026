@@ -26,6 +26,8 @@ limitrofes(nepal, india).
 limitrofes(china, india).
 limitrofes(nepal, china).
 limitrofes(afganistan, china).
+limitrofes(Pais1, Pais2):-
+    limitrofes(Pais2, Pais1).
 
 ocupa(argentina, azul).
 ocupa(bolivia, rojo).
@@ -45,19 +47,18 @@ continente(americaDelSur).
 continente(europa).
 continente(asia).
 
-
-%%estaEnContinente/2
+%%estaEnContinente/2 - relaciona un jugador y un continente si el jugador ocupa al menos un pais en el continente.
 
 estaEnContinente(Jugador,Continente):-
     ocupa(Pais,Jugador),
     paisContinente(Continente,Pais).
 
-%%ocupaContinente/2
+%%ocupaContinente/2 - relaciona un jugador y un continente si el jugador ocupa totalmente el continente.
 ocupaContinente(Jugador, Continente):-
     continente(Continente),
     forall(paisContinente(Continente,Pais), ocupa(Pais,Jugador)).
 
-%%cubaLibre/1
+%%cubaLibre/1 - es verdadero para un país si nadie lo ocupa.
 cubaLibre(Pais):-
     paisContinente(_,Pais),
     not(ocupa(Pais,_)).
