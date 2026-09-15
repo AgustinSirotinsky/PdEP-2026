@@ -1,0 +1,14 @@
+wolok init --help para ver como hacer
+.wllk
+
+
+Objetos puros, Java quizas no sea tanto peor una explicacion
+
+=========================================================================
+Objetos 
+    Repre de un ente computacional que exhibe comportamiento
+        cosaa que hace cosa, Un objeto entiende mensaje  (METODOS)
+
+    
+
+    
