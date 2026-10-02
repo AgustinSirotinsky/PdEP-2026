@@ -472,7 +472,7 @@ profesor(feli, paradigmas, k2002).
     Polimorfismo
         esto se refiere cunao un predicado puede recibir distintos tipos de individuos. Por ejemplo un predicado que reciba un atomo o un numero.
         ===========================================================================================================================================
-            Crear lista que cumplan (filter) -> findAll (algo, condicion(...,algo), ALGOES) 
+            Crear lista que cumplan (filter) -> findall (algo, condicion(...,algo), ALGOES) 
             Functores -> individuos compuestos,guardas lo que quieras. -> preicado (blah, blah, functor(....)) e esta manera podes tener istntas tipos para una misma funcion.
                 functor vacios es sin los ()
         ===========================================================================================================================================
